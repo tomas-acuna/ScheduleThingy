@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>SignUp</title>
+{% endblock %}
+
+{% block body %}
+<div class = "center login">
+<h1>SignUp</h1>
+<form action = "/login" method = "post">
+    <p>username:</p>
+    <p><input type = "text" name = "username"><p>
+    <p>password:</p>
+    <p><input type = "text" name = "password"><p>
+    <p>renter password:</p>
+    <p><input type = "text" name = "password_check"><p>
+    <p><input type = "submit" value = "enter"></p>
+</form>
+</div>
+{% endblock %}

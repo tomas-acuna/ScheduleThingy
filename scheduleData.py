@@ -30,3 +30,6 @@ def getbio(name):
 def getClasses(name):
     hold = cur.execute("SELECT class,section,professor,time FROM classes INNER JOIN class_submissions ON classes.class = class_submissions.class AND classes.section = class_submissions.section WHERE name = ? ", [name])
     return hold.fetchall()
+def getPassword(name):
+    hold = cur.execute("SELECT password FROM users WHERE name = ?", [name])
+    return hold.fetchall()
