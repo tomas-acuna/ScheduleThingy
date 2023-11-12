@@ -66,6 +66,14 @@ def upload_file():
         return render_template("upload.html", error = "something went wrong")
     return render_template("upload.html")
 
+@app.route("/about", methods=['GET', 'POST'])
+def about():
+    return render_template("about.html")
+
+@app.route("/viewclass", methods=['GET', 'POST'])
+def viewclass():
+    return render_template("viewclass.html", request.form["class"])
+
 
 if __name__ == '__main__':
   app.run(port=5000, debug=True)
