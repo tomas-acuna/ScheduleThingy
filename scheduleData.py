@@ -49,7 +49,7 @@ def getbio(name):
 def getClasses(name):
     with sqlite3.connect("scheduleApp.db") as con:
         cur = con.cursor()
-        hold = cur.execute("SELECT class,section,time FROM classes INNER JOIN class_submissions ON classes.class = class_submissions.class AND classes.section = class_submissions.section WHERE name = ? ", [name])
+        hold = cur.execute("SELECT classes.class,classes.section,classes.time FROM classes INNER JOIN class_submissions ON classes.class = class_submissions.class AND classes.section = class_submissions.section WHERE name = ? ", [name])
         list = hold.fetchall()
         if len(list) == 0:
             return False

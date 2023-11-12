@@ -11,7 +11,7 @@ def get_hash(string):
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template("login.html", username = session["username"], classes= ["hello","goodbye","world"])# + list(map(lambda x: x[0], scheduleData.getClasses(session["username"]))))
+        return render_template("classlist.html", username = session["username"], classes= ["hello","goodbye","world"])# + list(map(lambda x: x[0], scheduleData.getClasses(session["username"]))))
     return redirect('/classList')
 
 @app.route("/logout")
