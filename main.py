@@ -16,7 +16,7 @@ def get_classes(username):
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template("classlist.html", username = session["username"], classes= ["hello","goodbye","world"] + get_classes(session["username"]))
+        return render_template("classlist.html", username = session["username"], classes= ["hello","goodbye","world"] + scheduleData.getClassbyname(session["username"]))
     return redirect('/classList')
 
 @app.route("/logout")
@@ -53,7 +53,7 @@ def login():
 
 @app.route("/classList")
 def classList():
-    return render_template("classList.html",scheduleData.fetchAllinClass("cs250") )
+    return render_template("classList.html",classes = scheduleData.getClassbyname(session['username']) )
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -73,6 +73,7 @@ def about():
 @app.route("/viewclass", methods=['GET', 'POST'])
 def viewclass():
     return render_template("viewclass.html", request.form["class"])
+
 
 
 if __name__ == '__main__':

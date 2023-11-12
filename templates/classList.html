@@ -9,9 +9,10 @@
 <p>hello {{ username }}</p>
 <p><a href = "/logout">log out</a></p>
 <p><a href = "/upload">upload schedule</a></p>
+<p><a href = "/about">about</a></p>
 {% for name in classes %}
 <div class ="button-container">
-<button class="button_name">{{name}}</button>
+<button class="button_name" href="schedule">{{name}}</button>
 </div>
 
 {% endfor %}

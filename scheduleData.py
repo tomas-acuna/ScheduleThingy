@@ -55,6 +55,15 @@ def getClasses(name):
             return False
         return list
 
+def getClassbyname(name):
+   with sqlite3.connect("scheduleApp.db") as con:
+        cur = con.cursor()
+        hold = cur.execute("SELECT DISTINCT class FROM class_submissions WHERE name = ? ", [name])
+        lst = hold.fetchall()
+        if len(lst) == 0:
+            return []
+        return list(map( lambda x:x[0],lst))
+
 def getPassword(name):
     with sqlite3.connect("scheduleApp.db") as con:
         cur = con.cursor()
