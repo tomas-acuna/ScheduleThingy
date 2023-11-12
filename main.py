@@ -11,8 +11,8 @@ def get_hash(string):
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template("classList.html", username = session["username"])
-    return redirect('/classList')
+        return render_template("classList.html", username = session["username"], classes= ["hello","goodbye","world"])# + list(map(lambda x: x[0], scheduleData.getClasses(session["username"]))))
+    return redirect('/login')
 
 @app.route("/logout")
 def logout():
@@ -49,6 +49,17 @@ def login():
 @app.route("/classList")
 def classList():
     return render_template("classList.html",classes= ["hello","goodbye","world"])
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    if "username" not in session:
+        return redirect("/login")
+    if request.method == 'POST':
+        if request.files["file"]:
+            scheduleData.createScheduleData(session["username"], request.files["file"].read().decode("utf-8"))
+            return redirect("/")
+        return render_template("upload.html", error = "something went wrong")
+    return render_template("upload.html")
 
 
 if __name__ == '__main__':

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Upload</title>
+{% endblock %}
+
+{% block body %}
+<h1>Upload ics file</h1>
+<form action="/upload" method=post enctype=multipart/form-data>
+  <p><input type=file name=file accept = ".ics"></p>
+  <p><input type=submit value=Upload></p>
+  <p>{{ error_messaage }}</p>
+</form>
+{% endblock %}

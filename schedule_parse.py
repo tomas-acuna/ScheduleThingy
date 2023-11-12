@@ -3,10 +3,9 @@ from datetime import datetime, timedelta
 
 # tomas = "/Users/aikoma/Downloads/ST33760478Fall2023Cal.ics"
 
-def get_ics_info(file) -> tuple:
-    with open(file) as f:
-            cal = Calendar.from_ical(f.read())
-    
+def get_ics_info(data) -> tuple:
+    cal = Calendar.from_ical(data)
+
     all_classes = []
 
     for event in cal.walk("VEVENT"):
@@ -32,13 +31,12 @@ def get_ics_info(file) -> tuple:
 
             all_classes.append((course, sec, classtime, freq))
     return all_classes
-    
+
 
 # print(get_ics_info(tomas))
 
-def get_ics_info_w_dt(file) -> tuple:
-    with open(file) as f:
-            cal = Calendar.from_ical(f.read())
+def get_ics_info_w_dt(data) -> tuple:
+    cal = Calendar.from_ical(data)
 
     all_classes = []
 

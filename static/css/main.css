@@ -53,11 +53,11 @@ ul {
     overflow: hidden;
     background-color: #333;
   }
-  
+
   li {
     float: left;
   }
-  
+
   li a {
     display: block;
     color: white;
@@ -65,7 +65,7 @@ ul {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
+
   /* Change the link color to #111 (black) on hover */
   li a:hover {
     background-color: #111;
@@ -87,4 +87,8 @@ ul {
 
 .class-time {
     flex-shrink: 0; /* Prevent the class-time from shrinking */
+}
+
+a {
+    color: blue;
 }
