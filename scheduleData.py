@@ -24,8 +24,6 @@ def fetchAllinClass(clas):
         cur = con.cursor()
         hold = cur.execute("SELECT name FROM class_submissions WHERE class = ? ",[clas])
         names = hold.fetchall()
-        if len(names) == 0:
-            return False
         return [name[0] for name in names]
 
 def fetchAllinClassSection(clas,section):

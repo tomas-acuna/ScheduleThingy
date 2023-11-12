@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block body %}
-<p>hello {{ username }}</p>
+<p>students in class {{ clas }}</p>
 
 
 {% for name in students %}
 <div class ="button-container">
-<div class="button_name" href="schedule">{{name}}</div>
+<div class="button_name">{{name}}</div>
 </div>
 
 {% endfor %}

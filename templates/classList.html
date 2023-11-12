@@ -12,7 +12,7 @@
 <p><a href = "/about">about</a></p>
 {% for name in classes %}
 <div class ="button-container">
-<button class="button_name" href="schedule">{{name}}</button>
+<button class="button_name"><a href="/viewclass?class={{name}}">{{name}}</a></button>
 </div>
 
 {% endfor %}

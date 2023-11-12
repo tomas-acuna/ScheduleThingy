@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, session, redirect
 import hashlib
 import scheduleData
+import urllib.parse
 
 app = Flask(__name__)
 app.secret_key = "heheheha"
@@ -72,7 +73,7 @@ def about():
 
 @app.route("/viewclass", methods=['GET', 'POST'])
 def viewclass():
-    return render_template("studentlist.html", students = scheduleData.fetchAllinClass(request.args["class"]))
+    return render_template("studentlist.html", clas = request.args["class"], students = scheduleData.fetchAllinClass(request.args["class"]))
 
 
 
