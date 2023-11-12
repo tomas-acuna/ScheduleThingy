@@ -72,7 +72,7 @@ def about():
 
 @app.route("/viewclass", methods=['GET', 'POST'])
 def viewclass():
-    return render_template("viewclass.html", request.form["class"])
+    return render_template("studentlist.html", students = scheduleData.fetchAllinClass(request.args["class"]))
 
 
 
