@@ -17,20 +17,35 @@ def addclass_submission(name,clas,section):
 
 def fetchAllinClass(clas):
     hold = cur.execute("SELECT name FROM class_submissions WHERE class = ? ",[clas])
-    return hold.fetchall()
+    names = hold.fetchall()
+    if len(names) == 0:
+        return False
+    return [name[0] for name in names]
 
 def fetchAllinClassSection(clas,section):
     hold = cur.execute("SELECT name FROM class_submissions WHERE class = ? AND section = ? ",[clas,section])
-    return hold.fetchall()
+    names = hold.fetchall()
+    if len(names) == 0:
+        return False
+    return [name[0] for name in names]
 
 def getbio(name):
     hold = cur.execute("SELECT bio FROM user_bios WHERE name = ? ", [name])
-    return hold.fetchall()
+    bio = hold.fetchall()
+    if len(bio) == 0:
+        return False
+    return bio[0][0]
 
 def getClasses(name):
     hold = cur.execute("SELECT class,section,professor,time FROM classes INNER JOIN class_submissions ON classes.class = class_submissions.class AND classes.section = class_submissions.section WHERE name = ? ", [name])
-    return hold.fetchall()
+    list = hold.fetchall()
+    if len(list) == 0:
+        return False
+    return list
 
 def getPassword(name):
     hold = cur.execute("SELECT password FROM users WHERE name = ?", [name])
-    return hold.fetchall()
+    password = hold.fetchall()
+    if len(password) == 0:
+        return False
+    return password[0][0]
