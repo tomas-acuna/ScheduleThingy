@@ -11,8 +11,8 @@ def get_hash(string):
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template("classList.html", username = session["username"], classes= ["hello","goodbye","world"])# + list(map(lambda x: x[0], scheduleData.getClasses(session["username"]))))
-    return redirect('/login')
+        return render_template("login.html", username = session["username"], classes= ["hello","goodbye","world"])# + list(map(lambda x: x[0], scheduleData.getClasses(session["username"]))))
+    return redirect('/classList')
 
 @app.route("/logout")
 def logout():
@@ -48,7 +48,7 @@ def login():
 
 @app.route("/classList")
 def classList():
-    return render_template("classList.html",classes= ["hello","goodbye","world"])
+    return render_template("classList.html",scheduleData.fetchAllinClass("cs250") )
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
