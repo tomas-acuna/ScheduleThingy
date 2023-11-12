@@ -8,10 +8,15 @@ app.secret_key = "heheheha"
 def get_hash(string):
     return hashlib.sha256(string.encode('utf-8')).hexdigest()
 
+def get_classes(username):
+    if scheduleData.getClasses(username):
+        return list(map(lambda x: x[0], scheduleData.getClasses(username)))
+    return []
+
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template("classlist.html", username = session["username"], classes= ["hello","goodbye","world"] + list(map(lambda x: x[0], scheduleData.getClasses(session["username"]))))
+        return render_template("classlist.html", username = session["username"], classes= ["hello","goodbye","world"] + get_classes(session["username"]))
     return redirect('/classList')
 
 @app.route("/logout")
