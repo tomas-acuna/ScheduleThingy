@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block body %}
+{% for name in classes %}
+
+<div class ="button-container">
+<button class="button_name">{{name}}</button>
+</div>
+
+{% endfor %}
+
+{% endblock %}
