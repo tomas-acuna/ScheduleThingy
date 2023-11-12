@@ -7,10 +7,9 @@
 
 {% block body %}
 <p>hello {{ username }}</p>
-<p><a href = "/logout">log out</a></p>
-<p><a href = "/upload">upload schedule</a></p>
 
-{% for name in classes %}
+
+{% for name in students %}
 <div class ="button-container">
 <div class="button_name" href="schedule">{{name}}</div>
 </div>
