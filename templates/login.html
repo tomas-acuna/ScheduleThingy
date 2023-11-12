@@ -7,12 +7,19 @@
 {% block body %}
 <div class = "center login">
 <h1>Login</h1>
-<form action = "/login" method = "post">
+<form action = "/login" method = "post" autocomplete="off">
     <p>username:</p>
     <p><input type = "text" name = "username"><p>
+    {% if no_user %}
+      <p class = "error">there is no user named {{ username }}</p>
+    {% endif %}
     <p>password:</p>
-    <p><input type = "text" name = "password"><p>
+    {% if wrong_pass %}
+      <p class = "error">that is the incorrect password for {{ username }}</p>
+    {% endif %}
+    <p><input type = "password" name = "password"><p>
     <p><input type = "submit" value = "enter"></p>
+    <p><a href="/register">make account</a></p>
 </form>
 </div>
 {% endblock %}

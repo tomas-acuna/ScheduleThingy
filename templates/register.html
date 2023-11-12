@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login</title>
+{% endblock %}
+
+{% block body %}
+<div class = "center login">
+<h1>Register</h1>
+<form action = "/register" method = "post" autocomplete="off">
+    <p>username:</p>
+    <p><input type = "text" name = "username"><p>
+    {% if user_taken %}
+      <p class = "error">username {{ username }} is taken</p>
+    {% endif %}
+    <p>password:</p>
+    <p><input type = "password" name = "password1"><p>
+    <p>password again:</p>
+    <p><input type = "password" name = "password2"><p>
+    {% if pass_diff %}
+      <p class = "error">passwords do not match</p>
+    {% endif %}
+    <p><input type = "submit" value = "enter"></p>
+</form>
+</div>
+{% endblock %}

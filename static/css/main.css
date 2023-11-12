@@ -1,5 +1,4 @@
 body {
-    background-color: black;
     margin: 10;
     font-family: sans-serif;
 }
@@ -15,4 +14,8 @@ body {
 .login{
     background-color: bisque;
 
+}
+
+.error{
+  color: red;
 }
