@@ -11,8 +11,8 @@ def get_hash(string):
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template("home.html", username = session["username"])
-    return redirect('/login')
+        return render_template("classList.html", username = session["username"])
+    return redirect('/classList')
 
 @app.route("/logout")
 def logout():
@@ -45,6 +45,11 @@ def login():
         session["username"] = request.form["username"]
         return redirect("/")
     return render_template("login.html")
+
+@app.route("/classList")
+def classList():
+    return render_template("classList.html",classes= ["hello","goodbye","world"])
+
 
 if __name__ == '__main__':
   app.run(port=5000, debug=True)

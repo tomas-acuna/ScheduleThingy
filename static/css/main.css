@@ -33,8 +33,8 @@ body {
     padding: 3px 10px;
     border: none;
     border-radius: 20px;
-    background-color: rgb(89, 192, 226);
-    color: #fff;
+    background-color: rgb(245, 181, 85);
+    color: #ffffff;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -43,5 +43,48 @@ body {
 }
 
 .button_name:hover {
-    background-color: #45a049;
+    background-color: bisque;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+
+  .class-container {
+    border: 2px solid blue; /* Border color for the blue box */
+    padding: 10px; /* Adjust padding as needed */
+    display: flex;
+    justify-content: space-between; /* Align items to the start and end of the container */
+    align-items: center; /* Center items vertically */
+}
+
+.class-container a,
+.class-container p {
+    margin: 0; /* Remove default margin for the 'a' and 'p' elements */
+}
+
+.class-time {
+    flex-shrink: 0; /* Prevent the class-time from shrinking */
 }
