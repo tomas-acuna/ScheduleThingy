@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 # tomas = "/Users/aikoma/Downloads/ST33760478Fall2023Cal.ics"
 
 def get_ics_info(file) -> tuple:
-    with open(tomas) as f:
+    with open(file) as f:
             cal = Calendar.from_ical(f.read())
     
     all_classes = []
@@ -37,7 +37,7 @@ def get_ics_info(file) -> tuple:
 # print(get_ics_info(tomas))
 
 def get_ics_info_w_dt(file) -> tuple:
-    with open(tomas) as f:
+    with open(file) as f:
             cal = Calendar.from_ical(f.read())
 
     all_classes = []
