@@ -1,4 +1,5 @@
-import sqlite3, schedule_parse
+import sqlite3 
+from schedule_parse import get_ics_info
 
 con = sqlite3.connect("scheduleApp.db")
 cur = con.cursor()
@@ -49,3 +50,19 @@ def getPassword(name):
     if len(password) == 0:
         return False
     return password[0][0]
+
+def createScheduleData(name,file):
+    list = get_ics_info(file)
+    
+    for clas,section,time,days in list:
+
+        res = " ".join([str(item) for item in days])
+        time += res
+        hold = cur.execute("SELECT class FROM classes WHERE EXISTS (SELECT class FROM classes WHERE class = ? AND section = ? AND time= ?) ",[clas,section,time])
+        list = hold.fetchall()
+        hold = cur.execute("SELECT class FROM class_submissions WHERE EXISTS (SELECT class FROM classes WHERE class = ? AND section = ? AND name= ?) ",[clas,section,name])
+        if(len(list) == 0):
+            addclass(clas,section,time)
+        list = hold.fetchall()
+        if(len(list) == 0):
+            addclass_submission(name,clas,section)
